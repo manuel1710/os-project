@@ -5,7 +5,14 @@ import "bootstrap/dist/css/bootstrap.css";
 // COMPONENTS
 import { Link } from "react-router-dom";
 import { Navbar } from "../components";
-import { SJFjs } from "./sjf";
+import { addRow,
+  deleteRow,
+  draw,
+  animationStep,
+  recalculateServiceTime,
+  findNextIndexWithPriority,
+  findNextIndex,
+  animate } from "./sjf.js";
 
 const SJF = () => {
   return (
@@ -85,10 +92,10 @@ const SJF = () => {
             }}
             type="button"
             defaultValue="-"
-            onclick="deleteRow()"
+            onclick={deleteRow()}
           />
         </div>
-        <input type="button" defaultValue="+" onclick="addRow()" />
+        <input type="button" defaultValue="+" onclick={addRow()} />
         <div></div>
         <p id="quantumParagraph" hidden>
           Quantum:
@@ -99,7 +106,7 @@ const SJF = () => {
             defaultValue={3}
           />
         </p>
-        <input type="button" defaultValue="Go" onclick="draw()" />
+        <input type="button" defaultValue="Go" onclick={draw()} />
         <br />
         <br />
         <fresh></fresh>
