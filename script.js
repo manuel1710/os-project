@@ -17,9 +17,10 @@ $(document).ready(function () {
     if (this.value == 'robin') {
       $('.stime').hide();
       $('#quantumParagraph').show();
+      $('.quatume').show();
     }
     else {
-      $('#quantumParagraph').hide();
+      $('#quantumParagraph').show();
       $('.stime').show();
     }
 
