@@ -13,7 +13,7 @@
 </head>
 <body>
 
-<div class="container" class="text-center">
+<div class="text-center">
   <div class="buttons">
     <h2 class="text-center">Choose the Algorithm to visualise:</h2>
     <form id="algorithm" class="text-center">
@@ -70,14 +70,16 @@
 <div>
   </div>    
     <p id="quantumParagraph" hidden>Quantum: 
-        <input style="width: 50px;" id="quantum" type="text" value="3" />
+        <input id="quantum" type="text" value="3" />
     </p>
     <input type="button" value="EXECUTE" onclick="draw();" />
     <br/><br/>
-
-    <fresh>
-    </fresh>
+    <div class="container">
+      <tableviews>
+      </tableviews>
+    </div>
     <p>
+      <br>
     Timer: <strong id="timer"></strong> sec
     </p>
 

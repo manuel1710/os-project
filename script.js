@@ -35,7 +35,7 @@ function addRow() {
   + (lastRowNumebr + 1)
   + '</td><td>'
   + (lastRowNumebr + 1)
-  + '</td><td><input class="exectime" type="text"/></td><td class="stime"></td>'
+  + '</td><td><input class="etime" type="text"/></td><td class="stime"></td>'
   //if ($('input[name=algorithm]:checked', '#algorithm').val() == "priority")
   + '<td class="priority-only"><input type="text"/></td></tr>';
 
@@ -222,21 +222,21 @@ function findNextIndex(currentIndex, array) {
 }
 
 function animate() {
-	$('fresh').prepend('<div id="curtain" style="position: absolute; right: 0; width:100%; height:100px;"></div>');
+	$('tableviews').prepend('<div id="fadeaway" style="position: absolute; right: 0; width:100%; height:100px;"></div>');
   
-  $('#curtain').width($('#resultTable').width());
-  $('#curtain').css({left: $('#resultTable').position().left});
+  $('#fadeaway').width($('#resultTable').width());
+  $('#fadeaway').css({left: $('#resultTable').position().left});
   
   var sum = 0;
-  $('.exectime').each(function() {
+  $('.etime').each(function() {
       sum += Number($(this).val());
   });
   
   console.log($('#resultTable').width());
-  var distance = $("#curtain").css("width");
+  var distance = $("#fadeaway").css("width");
   
   animationStep(sum, 0);
-  jQuery('#curtain').animate({ width: '0', marginLeft: distance}, sum*1000/2, 'linear');
+  jQuery('#fadeaway').animate({ width: '0', marginLeft: distance}, sum*1000/2, 'linear');
 }
 
 function animationStep(steps, cur) {
@@ -251,7 +251,7 @@ function animationStep(steps, cur) {
 }
 
 function draw() {
-  $('fresh').html('');
+  $('tableviews').html('');
   var tablevalues = $('#tablevalues tr');
   var th = '';
   var td = '';
@@ -265,7 +265,7 @@ function draw() {
       td += '<td>' + executeTime + '</td>';
     });
 
-    $('fresh').html('<table id="resultTable"><tr>'
+    $('tableviews').html('<table id="resultTable"><tr>'
                     + th
                     + '</tr><tr>'
                     + td
@@ -292,7 +292,7 @@ function draw() {
       td += '<td>' + value.executeTime + '</td>';
     });
 
-    $('fresh').html('<table id="resultTable"><tr>'
+    $('tableviews').html('<table id="resultTable"><tr>'
                     + th
                     + '</tr><tr>'
                     + td
@@ -320,7 +320,7 @@ function draw() {
       td += '<td>' + value.executeTime + '</td>';
     });
 
-    $('fresh').html('<table id="resultTable" style="width: 70%"><tr>'
+    $('tableviews').html('<table id="resultTable" style="width: 70%"><tr>'
                     + th
                     + '</tr><tr>'
                     + td
@@ -349,7 +349,7 @@ function draw() {
         }
       });
     }
-    $('fresh').html('<table id="resultTable" style="width: 70%"><tr>'
+    $('tableviews').html('<table id="resultTable" style="width: 70%"><tr>'
                     + th
                     + '</tr><tr>'
                     + td
